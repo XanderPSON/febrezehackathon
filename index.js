@@ -1,14 +1,26 @@
-var http = require("http");
+// var http = require("http");
+// app.set('view engine', 'html');
+var express = require('express');
+var app = express();
+app.use(express.static(__dirname + '/views'));
+app.use(express.static(__dirname + '/scripts'));
 
-http.createServer(function (request, response) {
-   // Send the HTTP header
-   // HTTP Status: 200 : OK
-   // Content Type: text/plain
-   response.writeHead(200, {'Content-Type': 'text/plain'});
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+})
 
-   // Send the response body as "Hello World"
-   response.end('Hello World\n');
-}).listen(8081);
+app.get('/', function (req, res) {
+  res.send('Hello World!')
+})
 
-// Console will print the message
-console.log('Server running at http://127.0.0.1:8081/');
+app.post('/', function (req, res) {
+  res.send('Got a POST request')
+})
+
+app.put('/user', function (req, res) {
+  res.send('Got a PUT request at /user')
+})
+
+app.delete('/user', function (req, res) {
+  res.send('Got a DELETE request at /user')
+})
