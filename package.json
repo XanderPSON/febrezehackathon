@@ -1,22 +1,28 @@
 {
-  "name": "y",
-  "version": "1.0.0",
-  "description": "febreze hackathon",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "dependencies": {
+    "body-parser": "latest",
+    "cookie-parser": "latest",
+    "express": "latest",
+    "express-session": "latest",
+    "passport": "latest",
+    "passport-nest": "latest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/XanderPSON/febrezehackathon.git"
+    "url": "git://github.com/nestlabs/alert-jquery.git"
   },
-  "author": "",
-  "license": "ISC",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "alert-jquery",
+  "description": "A simple alert application that demonstrates how to access the Nest API from a web application by alerting the user when their Nest Protect goes off.",
   "bugs": {
-    "url": "https://github.com/XanderPSON/febrezehackathon/issues"
+    "url": "https://github.com/nestlabs/alert-jquery/issues"
   },
-  "homepage": "https://github.com/XanderPSON/febrezehackathon#readme",
-  "dependencies": {
-    "express": "^4.15.0"
-  }
+  "homepage": "https://github.com/nestlabs/alert-jquery#readme",
+  "version": "1.0.0",
+  "main": "Gruntfile.js",
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
 }
