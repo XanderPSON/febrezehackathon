@@ -1,37 +1,36 @@
 {
   "devices": {
     "smoke_co_alarms": {
-      "445kv3hZRn05KGkYLV8ymdY8t-b-NGa7": {
+      "ioMXqIs1lSiAaLIWJv7INNY8t-b-NGa7": {
+        "name": "Bedroom (3012)",
         "locale": "en-US",
         "structure_id": "2N6oXZxjdz-TddmBk_3GgcRU7_NMOBTSPC5cPbqE8AclIxNMgCbt5A",
-        "software_version": "3.1rc9",
+        "software_version": "1.0.2rc2",
         "where_id": "IWPxnZ8eBaZ7KrdagmZgQ1_AF1Wr5rbllzeRbzROiLbaur7DCu5nYQ",
-        "device_id": "445kv3hZRn05KGkYLV8ymdY8t-b-NGa7",
+        "device_id": "ioMXqIs1lSiAaLIWJv7INNY8t-b-NGa7",
         "where_name": "Bedroom",
-        "name": "Bedroom",
-        "name_long": "Bedroom Nest Protect",
+        "name_long": "Bedroom Nest Protect (3012)",
         "is_online": true,
-        "last_connection": "2017-03-05T05:21:08.718Z",
         "battery_health": "ok",
         "co_alarm_state": "ok",
-        "smoke_alarm_state": "ok",
-        "ui_color_state": "green",
+        "smoke_alarm_state": "warning",
+        "ui_color_state": "yellow",
         "is_manual_test_active": false,
-        "last_manual_test_time": "2017-03-05T05:20:18.000Z"
+        "last_manual_test_time": "2017-03-05T07:13:00.000Z"
       }
     }
   },
   "structures": {
     "2N6oXZxjdz-TddmBk_3GgcRU7_NMOBTSPC5cPbqE8AclIxNMgCbt5A": {
       "smoke_co_alarms": [
-        "445kv3hZRn05KGkYLV8ymdY8t-b-NGa7"
+        "ioMXqIs1lSiAaLIWJv7INNY8t-b-NGa7"
       ],
       "name": "Xabari",
       "country_code": "US",
       "time_zone": "America/Los_Angeles",
       "structure_id": "2N6oXZxjdz-TddmBk_3GgcRU7_NMOBTSPC5cPbqE8AclIxNMgCbt5A",
       "co_alarm_state": "ok",
-      "smoke_alarm_state": "ok",
+      "smoke_alarm_state": "warning",
       "wheres": {
         "IWPxnZ8eBaZ7KrdagmZgQ1_AF1Wr5rbllzeRbzROiLbDUHGdb2NUWw": {
           "where_id": "IWPxnZ8eBaZ7KrdagmZgQ1_AF1Wr5rbllzeRbzROiLbDUHGdb2NUWw",
