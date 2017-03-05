@@ -16,6 +16,77 @@
 /* globals $, Firebase, Notification */
 'use strict';
 
+var febreze = {};
+
+febreze.attr = {
+  body: [{"DeviceAction": "led_behavior=28" }],
+  headers: {
+    "Content-Type": "application/json",
+    "Authorization": "Bearer c.7rvd9nnU6bK1kxsZqheeMibmH2XiDKxp2kSs75oZQlYbJ56pWWuh2c1NVj98w8jEUc8b1t4sDUB34qROwArIaM3xhUaVzUMLuX2KULTZsgUM1q4tJ5grFgF1XyDdW60hbt1rjhOBN3A1J21K",
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization, Content-Length, X-Requested-With'
+  }
+};
+
+febreze.env = {
+  scheme: "https",
+  port: 443,
+  domain: "na-hackathon-api.arrayent.io",
+  oauthBasePath: "oauth2",
+  apiBasePath: "v3",
+  ClientID: "c29cca10-0131-11e7-9207-b5c3b663f6a4",
+  SecretID: "c45e5ae3fabd0d2fc8c6a29bbfa2732c2ecf8606",
+  oauthToken: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiJjMjljY2ExMC0wMTMxLT,ExZTctOTIwNy1iNWMzYjY2M2Y2YTQiLCJlbnZpcm9ubWVudF9pZCI6Ijk0OGUyY2YwLWZkNTItMTFlNi1hZTQ2LTVmYzI0MDQyYTg1MyIsInVzZXJfaWQiOiI5MDAwMDg1Iiwic2NvcGVzIjoie30iLCJncmFudF90eXBlIjoiYXV0aG9yaXphdGlvbl9jb2RlIiwiaWF0IjoxNDg4NjcwOTA0LCJleHAiOjE0ODk4ODA1MDR9.k4OUi-vWga96-TqxpwGiJ-Ml0_faVofaumkI94m0tIyB2IYshNnElZD7pL0DFdW1M-x00HwKSBVJRo7S8JpbJQ",
+  deviceId: "50331658"
+}
+
+febreze.blinkThreeTimes = function() {
+  $.ajax({
+    method: 'PUT',
+    crossDomain: true,
+    headers: febreze.attr.headers,
+    url: febreze.env.scheme + "://" + febreze.env.domain + ":" + febreze.env.port + "/" + febreze.env.oauthBasePath + "/" + febreze.env.apiBasePath + "/devices/" + febreze.env.deviceId,
+    data: [{"DeviceAction": "led_behavior=28" }]
+  })
+  .done(function() {
+    console.log( "success" );
+  })
+  .fail(function() {
+    console.log( "error" );
+  })
+  .always(function() {
+    console.log( "complete" );
+  });
+}
+
+febreze.checkDeviceStatus = function() {
+  $.ajax({
+    method: 'GET',
+    crossDomain: true,
+    headers: febreze.attr.headers,
+    url: febreze.env.scheme + "://" + febreze.env.domain + ":" + febreze.env.port + "/" + febreze.env.oauthBasePath + "/" + febreze.env.apiBasePath + "/devices/" + febreze.env.deviceId,
+  })
+  .done(function(data, textStatus, jqXHR) {
+    console.log( "success" );
+    console.log( data );
+    console.log( textStatus );
+    console.log( jqXHR );
+  })
+  .fail(function(data, textStatus, err) {
+    console.log( "error" );
+    console.log( data );
+    console.log( textStatus );
+    console.log( err );
+  })
+  .always(function(data, textStatus, jqXHR) {
+    console.log( "complete" );
+    console.log( data );
+    console.log( textStatus );
+    console.log( jqXHR );
+  });
+}
+
 var nestToken     = $.cookie('nest_token'),
     smokeCOAlarms = [];
 
@@ -49,7 +120,7 @@ function notify(title, options) {
 
 
 /**
-  Listen for CO alarms and alert the user
+  Listen for SMOKE alarm and alert the user
   as appropriate
 
 */
@@ -79,6 +150,8 @@ function listenForSmokeAlarms(alarm) {
 }
 
 function activate_spray(alarm) {
+  febreze.checkDeviceStatus();
+
   console.log(alarm.child('ui_color_state').val(), alarm.child('smoke_alarm_state').val())
 }
 

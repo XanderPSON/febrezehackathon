@@ -1,5 +1,5 @@
 {
-  "name": "Control",
+  "name": "control",
   "dependencies": {
     "jquery": "= 2.1.1",
     "jquery-cookie": "= 1.4.1",
